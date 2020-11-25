@@ -1,0 +1,34 @@
+.Header{
+    position: relative;
+    background-color: #FFF;
+    border-bottom: 1px solid #333;
+}
+
+.Header-nav{
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    padding: 1rem;
+}
+
+.Header-brand{
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.Header-brand img{
+    max-width: 250px;
+    width: 100%;
+}
+
+.Header-links{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+.Header a{
+    padding: 0 10px;
+    text-decoration: none;
+}
