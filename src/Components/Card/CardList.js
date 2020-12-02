@@ -1,36 +1,44 @@
-import React, { useEffect, useState } from 'react';
-import { CardList } from '../styledComponents'
+import React from 'react';
+import { CardList, Email } from '../styledComponents'
+import ContactCard from './Card'
+import { Title } from '../styledComponents'
 
-function getList() {
-    return fetch('https://reqres.in/api/users?page=1')
-        .then(data => data.json())
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+import { connect } from 'react-redux'
+import { contactList } from '../../actions/contactActions'
+
+class ContactList extends React.Component {
+    componentDidMount() {
+        this.props.contactList();
+    }
+    
+    render(){
+        console.log('contacts', this.props.contacts)
+        const contacts = this.props.contacts
+        const isArray = Array.isArray(contacts.data)
+                
+        return(
+            <>
+                <Title>Contact List</Title>
+                <CardList>
+                    {isArray ? (
+                        contacts.data.map(contact => (
+                            <ContactCard key={contact.id} {...contact}>
+                                {contact.body}
+                            </ContactCard>
+                        )
+                        
+                    )) : (
+                        <div>No hay data</div>
+                    )}
+                </CardList>
+            </>
+        )
+    };
 }
 
-function ContactList() {
-    const [list, setList] = useState([]);
-
-    useEffect(() => {
-        getList()
-        .then(items => {
-            setList(items.data)
-            console.log(items.data)
-        })
-    }, []);
-
-    return (
-        <CardList>
-            {list.map(item => 
-                <li key={item.id}>
-                    {item.email}
-                    {item.first_name}
-                    {item.last_name}
-                    <img src={item.avatar} alt="avatar" />
-                </li>)}
-        </CardList>
-    );
-}
-
-export default ContactList
+// ir a consultar el estado
+const mapStateToProps = state => ({
+    contacts: state.contacts.items
+});
+  
+export default connect(mapStateToProps, {contactList})(ContactList);

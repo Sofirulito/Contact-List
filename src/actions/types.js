@@ -1,0 +1,2 @@
+export const CONTACT_LIST = 'CONTACT_LIST';
+export const ADD_FAVORITE = 'ADD_FAVORITE'
