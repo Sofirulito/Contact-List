@@ -1,3 +1,5 @@
 # Contact List
 
-![alt text](public\Proyecto.PNG)
+## Overview page
+
+![](https://github.globant.com/sofia-meza/cp-contact-list/blob/master/public/Proyecto.PNG)
