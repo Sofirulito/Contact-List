@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from './Components/Header/Header';
 import store from './store'
 import ContactList from './Components/Card/CardList';
+import ContactListPager from './Components/Card/ContactList'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -23,6 +24,7 @@ function App() {
               <Route path="/favorites">
               </Route>
               <Route path="/contacts">
+                <ContactListPager />
               </Route>
               <Route path="/">
                 <ContactList/>

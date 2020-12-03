@@ -2,7 +2,6 @@ import React from 'react';
 import { CardList, Email } from '../styledComponents'
 import ContactCard from './Card'
 import { Title } from '../styledComponents'
-
 import { connect } from 'react-redux'
 import { contactList } from '../../actions/contactActions'
 
@@ -12,7 +11,6 @@ class ContactList extends React.Component {
     }
     
     render(){
-        console.log('contacts', this.props.contacts)
         const contacts = this.props.contacts
         const isArray = Array.isArray(contacts.data)
                 
