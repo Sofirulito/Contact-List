@@ -1,12 +1,11 @@
 import react, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
+import { FormContent, InputForm, InputButton} from './styles'
 
 function Form(){
-    const initialContacts = useSelector(state => state.contacts.contacts)
-    const [contact, setContact] = useState(initialContacts)
-
+    const dispatch = useDispatch();
     const [formData, setFormData] = useState('')
-
+    
     const handleChange = (event) => {
         setFormData({
             ...formData,
@@ -35,32 +34,23 @@ function Form(){
 
     const handleSubmit = (event) => {
         event.preventDefault()
-
-        let arr = contact.concat(formData)
-        setContact(arr)
-        localStorage.setItem('allContacts', JSON.stringify(arr))
-
-        createContact()
+        createContact()  
+        dispatch({
+            type: 'NEW_CONTACT', 
+            formData
+        })
     }
 
-    return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Firts Name
-                <input name="first_name" type="text" onChange={handleChange} value={formData.first_name} required />
-            </label>
-            <label>
-                Last Name
-                <input name="last_name" type="text" onChange={handleChange} value={formData.last_name} required />
-            </label>
-            <label>
-                Email
-                <input name="email" type="email" onChange={handleChange} value={formData.email} />
-            </label>
-            <input type="submit" value="Save" />
-        </form>
+    return(
+        <FormContent onSubmit={handleSubmit}>
+            <InputForm name="first_name" type="text" onChange={handleChange} value={formData.first_name} placeholder='First name' required />
+            <InputForm name="last_name" type="text" onChange={handleChange} value={formData.last_name} placeholder='Last name' required />
+            <InputForm name="email" type="email" onChange={handleChange} value={formData.email} placeholder='Email' required/>
+            <input type="checkbox" id="favorites" name="favorites" />
+            <label for="favorites">Enable like favorites</label>
+            <InputButton type="submit" value="Save"> Save </InputButton>
+        </FormContent>
     )
-
 }
 
 export default Form

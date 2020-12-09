@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import Card from '../Components/Card/Card'
-import { Title, CardList, ButtonDelete, ButtonAdd, CardContent} from '../Components/styledComponents'
+import CardList from '../Components/CardList/CardList'
+import { Title } from '../Components/styledComponents'
 import { contactList } from '../actions/contactActions'
 
 function Contactos(){
-    const contacts = useSelector(state => state.contacts.contacts)
-    const favorites = useSelector(state => state.contacts.favorites)
+    const contacts = useSelector(state => state.contacts.contacts.slice(0,6))
+    const favorites = useSelector(state => state.contacts.favorites.slice(0, 4))
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -15,37 +15,24 @@ function Contactos(){
     
     return(
         <section>
-        <Title>Favorites</Title>
-        <CardList>
-            { favorites.lenght !== '' ?
-               favorites.slice(0, 4).map((favorite)=> (
-                    <CardContent key={favorite.id} >
-                        <Card {...favorite}>
-                            {favorite.body}
-                        </Card>
-                    </CardContent>
-                )) : (
-                    <div>No hay Favoritos</div>
-                )
-            }
-        </CardList>
-
-        <Title>Contact List</Title>
-        <CardList>
-            { Array.isArray(contacts) ?
-                contacts.slice(0, 6).map((contact)=> (
-                    <CardContent key={contact.id} >
-                        <Card {...contact}>
-                            {contact.body}
-                        </Card>
-                        <ButtonAdd onClick={() => dispatch({type: 'ADD_FAVORITES', contact})}>Add Favorite</ButtonAdd>
-                    </CardContent>
-                )) : (
-                    <div>No hay contactos</div>
-                )
-            }
             
-        </CardList>
+            { favorites == '' ? 
+                (<>
+                    <Title>Favorites</Title>
+                    <br></br>
+                    <div>No tienes favoritos</div>
+                    <br></br>
+                </>)
+                
+                : (<>
+                    <Title>Favorites</Title>
+                    <CardList section="favorites" data={favorites} />
+                </>)
+            }
+            <>
+                <Title>Contact List</Title>
+                <CardList section="contact" data={contacts} />
+            </>
         </section>
     )   
 }

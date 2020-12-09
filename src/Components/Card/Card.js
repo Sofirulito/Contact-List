@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Avatar, Email, Name } from '../styledComponents'
+import { Avatar, Email, Name, CardContent } from '../styledComponents'
 
 const Card = ({children, avatar, email, first_name, last_name }) => {
     return(
-        <>
+        <CardContent>
             <Avatar src={avatar} />
-            <Email>{email}</Email>
             <Name>{first_name} {last_name}</Name>
-        </>
+            <Email>{email}</Email>
+            {children}
+        </CardContent>
     )
 }
 

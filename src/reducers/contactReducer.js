@@ -1,4 +1,4 @@
-import { CONTACT_LIST} from '../actions/types'
+import { CONTACT_LIST, NEW_CONTACT} from '../actions/types'
 
 const initialState = {
     contacts: [],
@@ -7,14 +7,19 @@ const initialState = {
 
 // accion pura que toma un estado previo y una acción y la retorna en el siguiente estado
 export default function(state = initialState, action){
+    console.log(action)
     switch(action.type){
             case CONTACT_LIST:
                 return{
                     ...state,
                     contacts: action.payload
                 }
+            case 'NEW_CONTACT':
+                return {
+                    ...state,
+                    contacts: state.contacts.concat(action.formData)
+                }
             case 'ADD_FAVORITES':
-                console.log('favorites', state.favorites)
                 return {
                     ...state,
                     favorites: state.favorites.concat(action.contact)
@@ -23,6 +28,11 @@ export default function(state = initialState, action){
                 return {
                     ...state,
                     favorites: state.favorites.filter(contact => contact.id !== action.contact.id)
+                }
+            case 'REMOVE_CONTACT':
+                return {
+                    ...state,
+                    contacts: state.contacts.filter(contact => contact.id !== action.contact.id)
                 }
             default: 
                 return state;

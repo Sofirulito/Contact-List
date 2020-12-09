@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
 import Pagination from "react-js-pagination";
-import Card from '../Components/Card/Card'
-import { Title, CardList, CardContent } from '../Components/styledComponents'
+import CardList from '../Components/CardList/CardList'
+import { Title } from '../Components/styledComponents'
+import './styles.css'
 
 function Contacts() {
-    const contacts = JSON.parse(localStorage.getItem('allContacts'))
+    const storeState = useSelector(state => state.contacts)
+    const [contacts, setContact] = useState(storeState.contacts)
 
     const [page, setPage] = useState(1)
     const PerPage = 8;
@@ -19,18 +22,9 @@ function Contacts() {
     };
 
     return (
-        <>
+        <>  
             <Title>Contact List</Title>
-            <CardList>
-                {currentTodos.map((item, index) =>
-                <CardContent key={index}>
-                    <Card  {...item}>
-                        {item.body}
-                    </Card>
-                    <button></button>
-                </CardContent>
-                )}
-            </CardList>
+            <CardList section="contacts" data={currentTodos} />
             <Pagination
                 hideDisabled
                 activePage={page}

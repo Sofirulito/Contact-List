@@ -3,19 +3,21 @@ import styled from 'styled-components'
 const Title = styled.h2`
     margin: 0;
     position: relative;
+    font-weight: 700;
+    font-size: 1.6rem;
     color: #231F20;
     &:after{
         content: "";
         position: absolute;
         height: 2px;
-        width: calc(100% - 150px);
+        width: calc(100% - 160px);
         background: #C1D72F;
         right: 0;
-        top: 16px;
+        top: 10px;
     }
 `
 
-const CardList = styled.div`
+const ListofCards = styled.div`
     display: flex;
     flex-wrap: wrap;
     padding: 1vw 0;
@@ -47,9 +49,12 @@ const Avatar = styled.img`
 `
 
 const Email = styled.p`
+    margin: 5px 0;
 `
 
 const Name = styled.p`
+    margin: 5px 0;
+    font-weight: 500;
 `
 const ButtonDelete = styled.button`
 `
@@ -58,7 +63,7 @@ const ButtonAdd = styled.button`
 
 export {
     Title,
-    CardList,
+    ListofCards,
     CardContent,
     Avatar,
     Name,
