@@ -26,7 +26,7 @@ const CardList = ({ children, data, section, avatar, email, first_name, last_nam
                         (<button onClick={() => dispatch({type: 'ADD_FAVORITES', contact})}>Agregar favoritos</button>)
                     }
                     { section == 'contacts' ?
-                        (<button onClick={() => dispatch({type: 'REMOVE_CONTACT', contact})}>Remover contacto</button>)
+                        <button onClick={() => dispatch({type: 'REMOVE_CONTACT', contact})}>Remover contacto</button>
                         :
                         null
                     }

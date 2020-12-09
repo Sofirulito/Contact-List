@@ -24,7 +24,7 @@ Card.defaultProps = {
     email: 'email@email.com',
     first_name: 'Pepe',
     last_name: 'Perez',
-    avatar: './defaultAvatar.png'
+    avatar: `${process.env.PUBLIC_URL + '/defaultAvatar.png'}`
 };
 
 

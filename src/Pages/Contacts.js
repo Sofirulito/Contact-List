@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux'
 import Pagination from "react-js-pagination";
 import CardList from '../Components/CardList/CardList'
 import { Title } from '../Components/styledComponents'
