@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import { contactList } from "../actions/contactActions";
 
 import contactReducer from './contactReducer';
 

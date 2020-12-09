@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Header from './Components/Header/Header';
 import store from './store'
-import ContactList from './Components/Card/CardList';
-import ContactListPager from './Components/Card/ContactList'
 import styled from 'styled-components'
+import Header from './Components/Header/Header';
+import Favorites from './Pages/Favorites';
+import Overview from './Pages/Overview';
+import Contacts from './Pages/Contacts';
 
 const Container = styled.div`
   max-width: 95%;
@@ -22,12 +23,13 @@ function App() {
           <Container>
             <Switch>
               <Route path="/favorites">
+                <Favorites />
               </Route>
               <Route path="/contacts">
-                <ContactListPager />
+                <Contacts />
               </Route>
               <Route path="/">
-                <ContactList/>
+                <Overview/>
               </Route>
             </Switch>
           </Container>

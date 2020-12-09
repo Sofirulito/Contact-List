@@ -25,23 +25,25 @@ const CardList = styled.div`
     }
 `
 
-const Card = styled.div`
+const CardContent = styled.div`
+    width: calc((100% / 4) - 20px);
     margin-bottom:20px;
     border: 1px solid #eee;
-    box-shadow: 0 2px 2px #ccc;
-    padding: 1rem 0.5rem;
+    box-shadow: 0 2px 4px #ccc;
+    padding: 1.5rem 0;
     background: #FFF;
     text-align: center;
-    flex: 1 0 21%;
     margin: 10px 10px 10px 0;
 
     @media (max-width: 768px) {
-        width: 100%;
+        width: 100%
     }
 `
 
 const Avatar = styled.img`
-    border-radius: 100%
+    border-radius: 100%;
+    height: 100px;
+    width: 100px
 `
 
 const Email = styled.p`
@@ -49,12 +51,18 @@ const Email = styled.p`
 
 const Name = styled.p`
 `
+const ButtonDelete = styled.button`
+`
+const ButtonAdd = styled.button`
+`
 
 export {
     Title,
     CardList,
-    Card,
+    CardContent,
     Avatar,
     Name,
-    Email
+    Email,
+    ButtonDelete,
+    ButtonAdd
 }

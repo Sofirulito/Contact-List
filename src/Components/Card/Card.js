@@ -1,21 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Avatar, Email, Name } from '../styledComponents'
+import { Avatar, Email, Name } from '../styledComponents'
 
-const ContactCard = props =>{
+const Card = ({children, avatar, email, first_name, last_name }) => {
     return(
-        <Card>
-            <Avatar src={props.avatar} />
-            <Email>{props.email}</Email>
-            <Name>{props.first_name} {props.last_name}</Name>
-        </Card>
+        <>
+            <Avatar src={avatar} />
+            <Email>{email}</Email>
+            <Name>{first_name} {last_name}</Name>
+        </>
     )
 }
 
-ContactCard.propTypes = {
+Card.propTypes = {
     email: PropTypes.string,
-    name: PropTypes.string,
+    first_name: PropTypes.string,
+    last_name: PropTypes.string,
     avatar: PropTypes.string
 };
 
-export default ContactCard;
+Card.defaultProps = {
+    email: 'email@email.com',
+    first_name: 'Pepe',
+    last_name: 'Perez',
+    avatar: './defaultAvatar.png'
+};
+
+
+
+export default Card;

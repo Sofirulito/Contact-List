@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link }  from "react-router-dom";
 import logo from '../../images/logo.svg';
+import Form from '../Form/Form';
 import "./header.css";
 
 function Header(){
+    const [showForm, setShowForm] = useState(false)
+    const onClick = ()  => setShowForm(true)
+  
     return(
+      <>
       <header className="Header">
         <nav className="Header-nav">
           <a href="/" className="Header-brand">
@@ -14,10 +19,12 @@ function Header(){
             <li><Link to="/">Overview</Link></li>
             <li><Link to="/contacts">Contacts</Link></li>
             <li><Link to="/favorites">Favorites</Link></li>
-            <li><button>New</button></li>
+            <li><button onClick={onClick}>New</button></li>
           </ul>
         </nav>
       </header>
+      { showForm ? <Form /> : null }
+      </>
     )
 }
 
