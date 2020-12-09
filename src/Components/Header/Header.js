@@ -12,11 +12,11 @@ function Header(){
       <>
       <header className="Header">
         <nav className="Header-nav">
-          <a href="/" className="Header-brand">
+          <a href="/overview" className="Header-brand">
             <img src={logo} alt="logo" />
           </a>
           <ul className="Header-links">
-            <li><Link to="/">Overview</Link></li>
+            <li><Link to="/overview">Overview</Link></li>
             <li><Link to="/contacts">Contacts</Link></li>
             <li><Link to="/favorites">Favorites</Link></li>
             <li><button onClick={onClick}>New</button></li>

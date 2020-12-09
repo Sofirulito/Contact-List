@@ -22,15 +22,9 @@ function App() {
           <Header />
           <Container>
             <Switch>
-              <Route path="/favorites">
-                <Favorites />
-              </Route>
-              <Route path="/contacts">
-                <Contacts />
-              </Route>
-              <Route path="/">
-                <Overview/>
-              </Route>
+              <Route path="/favorites" component={Favorites} />
+              <Route path="/contacts" component={Contacts} />
+              <Route path="/" component={Overview} />
             </Switch>
           </Container>
         </div>
