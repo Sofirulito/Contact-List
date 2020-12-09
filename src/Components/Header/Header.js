@@ -6,20 +6,20 @@ import "./header.css";
 
 function Header(){
     const [showForm, setShowForm] = useState(false)
-    const onClick = ()  => setShowForm(true)
-  
+    const toggleTrueFalse = () => setShowForm(!showForm);
+
     return(
       <>
       <header className="Header">
         <nav className="Header-nav">
-          <a href="/overview" className="Header-brand">
+          <div className="Header-brand">
             <img src={logo} alt="logo" />
-          </a>
+          </div>
           <ul className="Header-links">
             <li><Link to="/overview">Overview</Link></li>
             <li><Link to="/contacts">Contacts</Link></li>
             <li><Link to="/favorites">Favorites</Link></li>
-            <li><button onClick={onClick}>New</button></li>
+            <li><button onClick={toggleTrueFalse}><span>&#43;</span> New</button></li>
           </ul>
         </nav>
       </header>
