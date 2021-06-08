@@ -2,8 +2,8 @@
 
 ## Overview page
 
-![](https://github.globant.com/sofia-meza/cp-contact-list/blob/master/public/Proyecto.PNG)
+![](https://github.com/Sofirulito/Contact-List/blob/master/public/Proyecto.PNG)
 
 ## Contact page / Pager
 
-![](https://github.globant.com/sofia-meza/cp-contact-list/blob/master/public/PagerContactos.PNG)
+![](https://github.com/Sofirulito/Contact-List/blob/master/public/PagerContactos.PNG)
